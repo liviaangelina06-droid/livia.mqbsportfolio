@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Livia Angelina | Digital Marketing Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1a2e;
+    --soft: #f7f5f2;
+    --accent: #c85a3a;
+    --accent2: #2d6a8f;
+    --mid: #6b6b7b;
+    --card: #ffffff;
+    --border: #e8e4df;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'DM Sans', sans-serif; background: var(--soft); color: var(--ink); font-size: 16px; line-height: 1.7; }
+
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(247,245,242,0.96); backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 2.5rem; height: 60px;
+  }
+  .nav-logo { font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--ink); text-decoration: none; }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a { font-size: 0.8rem; font-weight: 500; color: var(--mid); text-decoration: none; letter-spacing: 0.06em; text-transform: uppercase; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--accent); }
+
+  .wrap { max-width: 920px; margin: 0 auto; padding: 6rem 2rem; }
+  .wrap:first-of-type { padding-top: 8rem; }
+
+  /* HERO */
+  #hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; max-width: 920px; margin: 0 auto; padding: 80px 2rem 4rem; }
+  .hero-eyebrow { font-family: 'DM Mono', monospace; font-size: 0.78rem; color: var(--accent); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 1.5rem; }
+  .hero-name { font-family: 'Playfair Display', serif; font-size: clamp(3rem, 8vw, 5.5rem); line-height: 1.05; margin-bottom: 1.5rem; }
+  .hero-name em { font-style: italic; color: var(--accent); }
+  .hero-tagline { font-size: 1.1rem; color: var(--mid); max-width: 520px; margin-bottom: 2.5rem; font-weight: 300; }
+  .hero-body { display: flex; gap: 4rem; align-items: flex-start; }
+  .hero-left { flex: 1; }
+  .hero-right { flex-shrink: 0; }
+  .hero-photo { width: 220px; height: 270px; object-fit: cover; object-position: top; border: 1px solid var(--border); }
+  .hero-cta { display: inline-block; background: var(--ink); color: #fff; padding: 0.85rem 2rem; font-size: 0.88rem; font-weight: 500; text-decoration: none; letter-spacing: 0.05em; transition: background 0.2s; }
+  .hero-cta:hover { background: var(--accent); }
+  .hero-meta { margin-top: 3rem; display: flex; gap: 3rem; border-top: 1px solid var(--border); padding-top: 2rem; flex-wrap: wrap; }
+  .hero-meta-label { font-family: 'DM Mono', monospace; font-size: 0.68rem; color: var(--mid); letter-spacing: 0.1em; text-transform: uppercase; }
+  .hero-meta-value { font-size: 0.92rem; font-weight: 500; }
+
+  .section-label { font-family: 'DM Mono', monospace; font-size: 0.72rem; color: var(--accent); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 1rem; }
+  .section-title { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 4vw, 2.6rem); line-height: 1.15; margin-bottom: 2rem; }
+
+  /* ABOUT */
+  .about-grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: 3rem; align-items: start; }
+  .about-text p { color: var(--mid); margin-bottom: 1rem; font-weight: 300; }
+  .about-text p strong { color: var(--ink); font-weight: 500; }
+  .skill-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1.5rem; }
+  .tag { font-size: 0.75rem; font-family: 'DM Mono', monospace; padding: 0.3rem 0.8rem; border: 1px solid var(--border); color: var(--mid); }
+  .tag.accent { border-color: var(--accent); color: var(--accent); }
+  .about-img { width: 100%; object-fit: cover; border: 1px solid var(--border); }
+
+  /* JOB */
+  .job-card { border: 1px solid var(--border); padding: 2rem; background: var(--card); position: relative; margin-bottom: 2.5rem; }
+  .job-card::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 4px; background: var(--accent); }
+  .job-title { font-family: 'Playfair Display', serif; font-size: 1.4rem; margin-bottom: 0.4rem; }
+  .job-company { color: var(--accent); font-weight: 500; font-size: 0.9rem; margin-bottom: 0.4rem; }
+  .job-meta { font-size: 0.75rem; color: var(--mid); font-family: 'DM Mono', monospace; margin-bottom: 1rem; }
+  .job-desc { color: var(--mid); font-weight: 300; font-size: 0.92rem; }
+  .fit-list { list-style: none; }
+  .fit-list li { padding: 0.85rem 0; border-bottom: 1px solid var(--border); font-size: 0.88rem; display: flex; gap: 1rem; align-items: flex-start; }
+  .fit-list li:last-child { border-bottom: none; }
+  .fit-icon { color: var(--accent); flex-shrink: 0; margin-top: 3px; }
+  .fit-list strong { color: var(--ink); }
+
+  /* EVIDENCE */
+  .capstone-intro { color: var(--mid); font-weight: 300; margin-bottom: 3rem; max-width: 650px; }
+  .evidence-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 2.5rem; }
+  .evidence-card { background: var(--card); border: 1px solid var(--border); padding: 1.75rem; }
+  .evidence-card h3 { font-family: 'Playfair Display', serif; font-size: 1.05rem; margin-bottom: 0.6rem; }
+  .evidence-card p { font-size: 0.85rem; color: var(--mid); font-weight: 300; line-height: 1.6; margin-bottom: 1rem; }
+  .e-tag { font-family: 'DM Mono', monospace; font-size: 0.65rem; color: var(--accent2); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 0.4rem; }
+  .evidence-img { width: 100%; border: 1px solid var(--border); display: block; }
+
+  /* QUOTE */
+  .quote-block { border-left: 3px solid var(--accent); padding: 1.25rem 1.75rem; background: var(--card); margin: 2rem 0; font-family: 'Playfair Display', serif; font-size: 1rem; font-style: italic; color: var(--ink); line-height: 1.6; }
+  .quote-source { font-family: 'DM Sans', sans-serif; font-style: normal; font-size: 0.75rem; color: var(--mid); margin-top: 0.6rem; font-family: 'DM Mono', monospace; letter-spacing: 0.04em; }
+
+  /* REFLECTION */
+  .reflection-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+  .reflection-card { padding: 1.75rem; background: var(--card); border: 1px solid var(--border); }
+  .reflection-card h3 { font-family: 'Playfair Display', serif; font-size: 1rem; margin-bottom: 0.75rem; padding-bottom: 0.75rem; border-bottom: 1px solid var(--border); }
+  .reflection-card p { font-size: 0.86rem; color: var(--mid); font-weight: 300; line-height: 1.65; }
+
+  /* GROWTH */
+  .growth-item { display: flex; gap: 2rem; align-items: flex-start; padding: 1.75rem 0; border-bottom: 1px solid var(--border); }
+  .growth-item:last-child { border-bottom: none; }
+  .growth-num { font-family: 'Playfair Display', serif; font-size: 2.2rem; color: var(--border); line-height: 1; flex-shrink: 0; width: 55px; text-align: right; }
+  .growth-content h3 { font-size: 0.95rem; font-weight: 500; margin-bottom: 0.4rem; }
+  .growth-content p { font-size: 0.86rem; color: var(--mid); font-weight: 300; }
+
+  /* FULL-WIDTH IMG */
+  .full-img { width: 100%; border: 1px solid var(--border); display: block; margin-top: 1.5rem; }
+  .img-caption { font-family: 'DM Mono', monospace; font-size: 0.68rem; color: var(--mid); margin-top: 0.5rem; letter-spacing: 0.06em; }
+
+  /* CONTACT */
+  #contact { background: var(--ink); padding: 5rem 2rem; text-align: center; color: #fff; }
+  #contact .section-label { color: var(--accent); }
+  #contact .section-title { color: #fff; max-width: 600px; margin: 0 auto 1rem; }
+  #contact p { color: rgba(255,255,255,0.55); margin-bottom: 2rem; font-weight: 300; }
+  .contact-links { display: flex; justify-content: center; gap: 1.25rem; flex-wrap: wrap; }
+  .contact-link { display: inline-block; padding: 0.75rem 1.75rem; border: 1px solid rgba(255,255,255,0.2); color: #fff; text-decoration: none; font-size: 0.85rem; font-weight: 500; letter-spacing: 0.05em; transition: all 0.2s; }
+  .contact-link:hover { border-color: var(--accent); color: var(--accent); }
+  .contact-link.primary { background: var(--accent); border-color: var(--accent); }
+  .contact-link.primary:hover { background: transparent; }
+
+  @media (max-width: 640px) {
+    .about-grid, .evidence-grid, .reflection-grid { grid-template-columns: 1fr; }
+    .hero-body { flex-direction: column-reverse; }
+    .hero-photo { width: 100%; height: 280px; }
+    .nav-links { display: none; }
+    .hero-meta { flex-direction: column; gap: 1.25rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#hero" class="nav-logo">Livia Angelina</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#role">The Role</a></li>
+    <li><a href="#capstone">Capstone</a></li>
+    <li><a href="#reflection">Reflection</a></li>
+    <li><a href="#growth">Growth</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <p class="hero-eyebrow">Bachelor of Commerce (Marketing) · Macquarie University</p>
+  <div class="hero-body">
+    <div class="hero-left">
+      <h1 class="hero-name">Livia<br><em>Angelina.</em></h1>
+      <p class="hero-tagline">Marketing strategist with a sharp eye for consumer behaviour, digital channels, and brand storytelling — ready to make an impact from day one.</p>
+      <a href="#role" class="hero-cta">View my application →</a>
+      <div class="hero-meta">
+        <div>
+          <div class="hero-meta-label">Graduating</div>
+          <div class="hero-meta-value">October 2026</div>
+        </div>
+        <div>
+          <div class="hero-meta-label">Major</div>
+          <div class="hero-meta-value">Marketing</div>
+        </div>
+        <div>
+          <div class="hero-meta-label">Applying for</div>
+          <div class="hero-meta-value">Digital Marketing Coordinator · GenesisCare</div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-right">
+      <img src="https://media.licdn.com/dms/image/v2/D5603AQH2gQwFmEcxOQ/profile-displayphoto-shrink_800_800/B56ZbcVKMfHMAc-/0/1747449836566?e=1755388800&v=beta&t=Hj8PXRjxXnPvpUSyUORiEV9y5fI9OmMjXEgmsMFkSgk" alt="Livia Angelina" class="hero-photo" onerror="this.style.display='none'">
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<div class="wrap" id="about">
+  <p class="section-label">01 — About Me</p>
+  <h2 class="section-title">Where strategy<br>meets execution.</h2>
+  <div class="about-grid">
+    <div class="about-text">
+      <p>I'm a final-year <strong>Bachelor of Commerce (Marketing)</strong> student at Macquarie University, passionate about the intersection of data, design, and digital experience.</p>
+      <p>In my Capstone unit, I led the design and marketing strategy for a real client brief — transforming The King's Foundation's 15,000 acres of underutilised heritage land into <strong>Hillview's Estate</strong>, a sustainable premium event venue. That project sharpened everything I now bring to work: strategic thinking, cross-functional collaboration, evidence-based decision making, and the confidence to own a brief end-to-end.</p>
+      <p>I thrive in fast-paced, ambiguous environments. I ask questions, find patterns, and build things that move people — and I've just landed my first internship as a Digital Marketing Coordinator to prove it.</p>
+      <div class="skill-tags">
+        <span class="tag accent">Digital Marketing</span>
+        <span class="tag accent">Brand Strategy</span>
+        <span class="tag accent">SEO / SEM</span>
+        <span class="tag">Meta Ads</span>
+        <span class="tag">LinkedIn Ads</span>
+        <span class="tag">CRM / Salesforce</span>
+        <span class="tag">Content Strategy</span>
+        <span class="tag">Design Thinking</span>
+        <span class="tag">Stakeholder Comms</span>
+        <span class="tag">AI Tools</span>
+      </div>
+    </div>
+    <div>
+      <img src="https://media.licdn.com/dms/image/v2/D5603AQH2gQwFmEcxOQ/profile-displayphoto-shrink_800_800/B56ZbcVKMfHMAc-/0/1747449836566?e=1755388800&v=beta&t=Hj8PXRjxXnPvpUSyUORiEV9y5fI9OmMjXEgmsMFkSgk" alt="Livia Angelina" class="about-img" onerror="this.style.background='#f0ecea';this.style.minHeight='300px'">
+    </div>
+  </div>
+</div>
+
+<!-- THE ROLE -->
+<div class="wrap" id="role">
+  <p class="section-label">02 — The Role</p>
+  <h2 class="section-title">Why GenesisCare,<br>why now.</h2>
+  <div class="job-card">
+    <p class="job-company">GenesisCare</p>
+    <h3 class="job-title">Digital Marketing Coordinator</h3>
+    <p class="job-meta">CONTRACT · 9 MONTHS · HYBRID · ALEXANDRIA, SYDNEY NSW</p>
+    <p class="job-desc">A hands-on role supporting digital marketing across websites, campaigns, email, paid media and social channels within a purpose-driven healthcare environment.</p>
+  </div>
+
+  <img src="job-ad.png" alt="GenesisCare job advertisement" class="full-img">
+  <p class="img-caption">SCREENSHOT — GENESISCARE JOB ADVERTISEMENT · SEEK.COM.AU</p>
+
+  <div style="margin-top: 2.5rem;">
+    <p style="color: var(--mid); font-weight: 300; margin-bottom: 1.5rem; font-size: 0.92rem;">Here's how my Capstone experience maps directly to what GenesisCare is looking for:</p>
+    <ul class="fit-list">
+      <li><span class="fit-icon">→</span><div><strong>Websites, SEO & paid media</strong> — I developed a full GTM strategy including SEO keyword targeting ("destination event venues NSW"), Meta and LinkedIn ad segmentation across three consumer segments, and performance measurement via KPIs and conversion tracking.</div></li>
+      <li><span class="fit-icon">→</span><div><strong>CRM & Salesforce</strong> — I designed a CRM-backed email marketing funnel to nurture leads with touchpoints aligned to different stages of the buyer journey — from awareness through to repeat bookings.</div></li>
+      <li><span class="fit-icon">→</span><div><strong>Stakeholder management & communication</strong> — I coordinated across an interdisciplinary five-person team (marketing, finance, strategy, IT) communicating decisions clearly and gaining buy-in under tight, real-world deadlines.</div></li>
+      <li><span class="fit-icon">→</span><div><strong>Structured governance & approval frameworks</strong> — Our team ran a formal team charter with a two-day advance notice system and shared documentation — directly translating to structured workplace environments.</div></li>
+      <li><span class="fit-icon">→</span><div><strong>Purpose-driven work</strong> — My project anchored every marketing decision to UN SDG 8 (Decent Work & Economic Growth). Working within GenesisCare's mission-led environment is exactly the kind of work I show up for.</div></li>
+    </ul>
+  </div>
+</div>
+
+<!-- CAPSTONE -->
+<div class="wrap" id="capstone">
+  <p class="section-label">03 — Capstone Evidence</p>
+  <h2 class="section-title">From the classroom<br>to the client brief.</h2>
+  <p class="capstone-intro">In MQBS3010, my interdisciplinary team developed a full business solution for The King's Foundation — converting 15,000 acres of heritage land in the Southern Highlands into <em>Hillview's Estate</em>, a sustainable premium event venue targeting weddings, corporate retreats, and educational programs.</p>
+
+  <div class="evidence-grid">
+    <div class="evidence-card">
+      <p class="e-tag">Brand & Design</p>
+      <h3>Slide Deck & Visual Identity</h3>
+      <p>As Design and Marketing Lead, I built the entire pitch deck template to match The King's Foundation's branding — ensuring visual consistency, professional polish, and a logical narrative flow structured using the design thinking framework.</p>
+      <img src="slide-deck.png" alt="Hillview Estate pitch deck" class="evidence-img">
+    </div>
+    <div class="evidence-card">
+      <p class="e-tag">Strategy</p>
+      <h3>Brand Positioning & Differentiation</h3>
+      <p>I created Hillview Estate's positioning map — identifying the competitive gap and articulating our key differentiator: AI-powered photography (FotoOwl) bundled into premium all-inclusive event packages to remove a known consumer pain point.</p>
+      <img src="positioning-map.png" alt="Brand positioning map" class="evidence-img">
+    </div>
+    <div class="evidence-card">
+      <p class="e-tag">Digital Marketing</p>
+      <h3>Go-to-Market Strategy</h3>
+      <p>I developed the full GTM marketing funnel across a $50k launch budget — Meta for weddings, LinkedIn for corporate, Pinterest for engaged couples, SEO for organic discovery, and email/CRM to drive conversions and CLV.</p>
+      <img src="gtm-funnel.png" alt="GTM marketing funnel" class="evidence-img">
+    </div>
+    <div class="evidence-card">
+      <p class="e-tag">Research</p>
+      <h3>Evidence-Based Decision Making</h3>
+      <p>Every recommendation was backed by data: 2.1M Southern Highlands visitors, 71% of Australians preferring live events post-pandemic, and 65% of event companies increasing AI adoption. I recorded findings in shared documents to guide the team's decisions.</p>
+      <img src="research.png" alt="Research summary" class="evidence-img">
+    </div>
+  </div>
+
+  <div class="quote-block">
+    "Before designing a solution, we must first identify and understand the consumer's pain points."
+    <div class="quote-source">— Account Executive at Salesforce · MQBS3010 Industry Guest</div>
+  </div>
+  <p style="color: var(--mid); font-size: 0.88rem; font-weight: 300; margin-bottom: 3rem;">This shaped our decision to integrate photography into our packages — turning a $2,000–$4,000 outsourced expense into a competitive differentiator that directly addresses what customers hate about event planning.</p>
+
+  <h3 style="font-family: 'Playfair Display', serif; font-size: 1.35rem; margin-bottom: 1rem;">The Agility Challenge</h3>
+  <p style="color: var(--mid); font-weight: 300; font-size: 0.9rem; margin-bottom: 1rem;">Midway through the project, our team faced a deliberate disruption — a sudden pivot designed to test how we handle conflict and adapt under pressure. At the time we were transitioning from storming to norming (Tuckman's framework), and the challenge forced us to reset fast.</p>
+  <p style="color: var(--mid); font-weight: 300; font-size: 0.9rem; margin-bottom: 1.5rem;">We called an urgent three-hour Zoom, divided responsibilities by expertise, and collectively pivoted our SDG focus from SDG 5 to SDG 12 under deadline. I stepped up immediately as Design and Marketing Lead — taking ownership of the deck structure rather than waiting to be assigned.</p>
+
+  <img src="zoom-meeting.png" alt="Team Zoom meeting during agility challenge" class="full-img">
+  <p class="img-caption">TEAM ZOOM SESSION — AGILITY CHALLENGE · LIVIA ANGELINA, TANYA SINGH, HAYDEN JONES, JIAN YI LAI, JOSH CHAM</p>
+
+  <div class="quote-block" style="margin-top: 2rem;">
+    "Over-collaboration can slow a team down — trust each other's expertise and come back to the table with solutions."
+    <div class="quote-source">— HR Manager at Sydney Children's Hospital Foundation · MQBS3010 Industry Guest</div>
+  </div>
+  <p style="color: var(--mid); font-size: 0.88rem; font-weight: 300;">Rather than making every decision by committee, we divided and trusted — and delivered a client-ready pitch deck on time.</p>
+</div>
+
+<!-- REFLECTION -->
+<div class="wrap" id="reflection">
+  <p class="section-label">04 — Reflection</p>
+  <h2 class="section-title">What I learned<br>about myself.</h2>
+  <div class="reflection-grid">
+    <div class="reflection-card">
+      <h3>Self-Awareness</h3>
+      <p>I joined the team late — transferred in Week 2, missed Weeks 3 and 4 due to illness. That disrupted the forming stage and created an awkward dynamic I had to navigate carefully. I learned that I tend to "stay small" in new environments, suppressing ideas to avoid friction. Recognising this pattern was the first step to changing it.</p>
+    </div>
+    <div class="reflection-card">
+      <h3>Stepping Up Under Pressure</h3>
+      <p>When the agility challenge hit, I couldn't afford to stay small. I re-engaged immediately — volunteering for the design and marketing lead role rather than waiting to be directed. That shift from reactive to proactive is something I now carry into every new environment, including my upcoming internship.</p>
+    </div>
+    <div class="reflection-card">
+      <h3>Trust as a Team Strategy</h3>
+      <p>Our Week 6 feedback showed high psychological safety but lower group identification — trust was task-based, not emotional. I learned that effectiveness isn't just about output; it's about connection. Going forward I'd invest earlier in genuine rapport with teammates, not just task delivery.</p>
+    </div>
+    <div class="reflection-card">
+      <h3>Structured Creativity</h3>
+      <p>Our ideation sessions were productive but messy — no time limits, rambling discussions. I learned the value of timeboxing every phase. Creativity needs a container. In a fast-moving digital marketing role, that discipline is how campaigns keep moving without losing quality.</p>
+    </div>
+  </div>
+</div>
+
+<!-- GROWTH -->
+<div class="wrap" id="growth">
+  <p class="section-label">05 — Growth Mindset</p>
+  <h2 class="section-title">Where I'm headed.</h2>
+
+  <div class="growth-item">
+    <div class="growth-num">01</div>
+    <div class="growth-content">
+      <h3>Deepen platform expertise</h3>
+      <p>I'm actively building hands-on capability in Salesforce, Google Ads, and Meta Ads Manager — moving from strategic understanding to execution-level confidence. Starting my Digital Marketing Coordinator internship is the first real step in this.</p>
+    </div>
+  </div>
+  <div class="growth-item">
+    <div class="growth-num">02</div>
+    <div class="growth-content">
+      <h3>Lead with data, not assumptions</h3>
+      <p>A lesson from both the Capstone and industry guests: every decision should trace back to evidence. I'm building stronger habits around analytics — reading dashboards critically, asking "so what?" before reporting, and connecting metrics to real business outcomes.</p>
+    </div>
+  </div>
+  <div class="growth-item">
+    <div class="growth-num">03</div>
+    <div class="growth-content">
+      <h3>Show up to grow up</h3>
+      <p>The HR Business Partner at Cochlear described a lifelong learning mindset as one that contributes and stays open even in uncomfortable situations. That's the professional I'm becoming — someone who keeps learning on the job, not just in the classroom. As the Head of Network Delivery at Nokia put it: it's okay to fail once, as long as you learn and don't repeat the mistake.</p>
+    </div>
+  </div>
+  <div class="growth-item">
+    <div class="growth-num">04</div>
+    <div class="growth-content">
+      <h3>Transition into industry with intention</h3>
+      <p>Graduating October 2026, I'm building the foundations of a long-term digital marketing career in Australia. The internship offer I've already secured is proof that showing up authentically — being transparent about my situation, my skills, and my timeline — is the right strategy.</p>
+    </div>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<section id="contact">
+  <p class="section-label">06 — Let's Connect</p>
+  <h2 class="section-title">Ready to contribute<br>from day one.</h2>
+  <p>I'd love to bring my energy, strategic thinking, and genuine curiosity to the GenesisCare team.</p>
+  <div class="contact-links">
+    <a href="mailto:livia.amgelina@students.mq.edu.au" class="contact-link primary">Email Me</a>
+    <a href="https://www.linkedin.com/in/livia-angelina-b7667a287/" target="_blank" class="contact-link">LinkedIn</a>
+  </div>
+</section>
+
+</body>
+</html>
